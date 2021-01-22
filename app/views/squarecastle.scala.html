@@ -1,0 +1,141 @@
+@import gamecontrol.supervisor.SupervisorInterface
+@import gamemodel.model.PlayerInterface
+@*
+* This template takes a single argument, a String containing a
+* message to display.
+*@
+@import javax.imageio.ImageIO
+@(s: String, supervisor: SupervisorInterface, player1color:String, player2color:String, player1name:String, player2name:String)
+@*
+* Call the `main` template with two arguments. The first
+* argument is a `String` with the title of the page, the second
+* argument is an `Html` object containing the body of the page.
+*@
+
+@main("Willkommen bei SquareCastle") {
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("less/main.css")">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src='@routes.Assets.versioned("javascripts/playerSettings.js")' type="application/javascript"></script>
+    <script src='@routes.Assets.versioned("javascripts/square.js")' type="application/javascript"></script>
+
+
+    <script>
+        function getPath(var x, var y) {
+            @routes.Assets.versioned(supervisor.controller.ImagePath(supervisor.map.field(0)(0), supervisor.card))
+        }
+    </script>
+    <div class="container-fluid background-img-game">
+        <div class="row">
+            <div class="col-2 col-xl-3"></div>
+            <div class="col-10 col-xl-9">
+                <div class="row">
+                    <div class="col-10 col-xl-8">
+                        <div class="row">
+                            <div class="col-xl-2"></div>
+                            <div class="col-12 col-xl-8">
+                                <div class="title">
+                                    <img src="@routes.Assets.versioned("images/title.png")" width="600">
+                                </div>
+                            </div>
+                            <div class="col-xl-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-2 col-xl-4">
+                        <a href="home">
+                            <button class="home-button"></button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-xl-3">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-xl-12">
+                        <div id="selectedPlayer1" class="@player1color-player">
+                            <div class="playerName">
+                                <p>@player1name</p>
+                            </div>
+                            <div class="playerPoints">
+                                <p id="p1Points">0 Pts</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-12">
+                        <div id="selectedPlayer2" class="@player2color-player">
+                            <div class="playerName">
+                                <p>@player2name</p>
+                            </div>
+                            <div class="playerPoints">
+                                <p id="p2Points">0 Pts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<p>Its player</p>
+                <p class="green-text">@supervisor.playersturn 's</p>
+                <p>turn!!</p>*@
+            </div>
+            <div class="col-12 col-xl-9">
+                <div class="row">
+                    <div class="col-12 col-xl-8">
+                        <section class="mapWrapper">
+                            @for(y <- 0 until 6) {
+                                <div class="row">
+                                @for(x <- 0 until 12) {
+                                    <div id="@x @y" class="col-1 grid-hover" instruction="0" x="@x" y="@y" onclick="calc(this);">
+                                        <img src=@routes.Assets.versioned(supervisor.controller.ImagePath(supervisor.map.field(x)(y), supervisor.card)) >
+                                    </div>
+                                }
+                                </div>
+                            }
+                        </section>
+                    </div>
+                    <div class="col-6 col-xl-4">
+                        <div class="cardPreview-background" id="newcard">
+                            <img id="preview" src="@routes.Assets.versioned(s)" class="card-preview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-sm-1 col-md-2 col-lg-3 col-xl-4"></div>
+                    <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
+                        <section class="centerToolbar">
+                            <div id="l" class="left-background">
+                                <button class="toolbar-button" instruction="l" onclick="calc(this);"></button>
+                            </div>
+                            <div id="wait" class="pause-background">
+                                <button class="toolbar-button" instruction="wait" onclick="calc(this);"></button>
+                            </div>
+                            <div id="r" class="right-background">
+                                <button class="toolbar-button" instruction="r" onclick="calc(this);"></button>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-sm-1 col-md-2 col-lg-3 col-xl-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="animateImg" class="animationgame transform" style="color: white; font-width: 20px; height: 120px; width: 200px;border-bottom-right-radius: 30px; border-top-right-radius: 30px;  right:100%; top:7%; padding: 5px 0 0 30px">
+        @*<img src="@routes.Assets.versioned("images/spieler1.png")" width="1000">*@
+        <div class="row" id="punkteAnzeige" style ="font-size: 40px">0</div>
+        <div class="row" style ="font-size: 30px">PUNKTE</div>
+    </div>
+
+    <script>
+            window.onload = function () {
+                startgame();
+                //initializevalues(@player1name,@player2name, @player1color, @player2color)
+            }
+    </script>
+    @*
+    * Get an `Html` object by calling the built-in Play welcome
+    * template and passing a `String` message.
+    *@
+}
+

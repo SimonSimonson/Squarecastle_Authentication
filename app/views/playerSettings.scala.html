@@ -1,0 +1,80 @@
+@()
+
+
+@main("playerSettings") {
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("less/main.css")">
+    <script src='@routes.Assets.versioned("javascripts/jquery-3.2.1.min.js")' type="application/javascript"></script>
+    <script src='@routes.Assets.versioned("javascripts/square.js")' type="application/javascript"></script>
+    <script src='@routes.Assets.versioned("javascripts/playerSettings.js")' type="application/javascript"></script>
+
+    <div class="container-fluid background-img-playerSettings">
+        @*<div class="row">
+            <div class="col-12">
+                *@@*<audio src="@routes.Assets.versioned("images/Soundtrack.mp3")" controls>
+                    <p>If you are reading this, it is because your browser does not support the audio element.</p>
+                </audio>*@@*
+                <img class="titleWhite" src="@routes.Assets.versioned("images/titleWhite.png")">
+            </div>
+        </div>*@
+        <div class="row">
+            <div class="col-12">
+                <img class="selectPlayers" src="@routes.Assets.versioned("images/selectPlayers.png")">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-6 col-lg-2">
+                <div class="player bluePlayer">
+                    <div class="playerCover"><img class="coverIMG" src="@routes.Assets.versioned("images/players/bluePlayer.png")"></div>
+                    <button id="btnP1" class="playerButtons"><div class="buttonDIV"></div></button>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <div class="player redPlayer">
+                    <div class="playerCover"><img class="coverIMG" src="@routes.Assets.versioned("images/players/redPlayer.png")"></div>
+                    <button id="btnP2" class="playerButtons"><div class="buttonDIV"></div></button>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <div class="player greenPlayer">
+                    <div class="playerCover"><img class="coverIMG" src="@routes.Assets.versioned("images/players/greenPlayer.png")"></div>
+                    <button id="btnP3" class="playerButtons"><div class="buttonDIV"></div></button>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <div class="player purplePlayer">
+                    <div class="playerCover"><img class="coverIMG" src="@routes.Assets.versioned("images/players/purplePlayer.png")"></div>
+                    <button id="btnP4" class="playerButtons"><div class="buttonDIV"></div></button>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="chosenPlayers">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-2">
+                <div id="p1Selected" class="noneSelected"></div>
+            </div>
+            <div class="col-2">
+                <div id="p2Selected" class="noneSelected"></div>
+            </div>
+            <div class="col-4">
+                <div class="centered-buttons">
+                    <a id="startGame" class="start-btn"></a>
+                    <a class="home-btn" href="home"></a>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+}
+
+
+
+

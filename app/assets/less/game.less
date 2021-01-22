@@ -1,0 +1,193 @@
+@import "./prototypes.less";
+
+.background-img-game {
+  background: no-repeat center center fixed @woodBackground;
+  .background-img();
+}
+
+
+/*-------------------------Top-Row------------------------------------*/
+.title {
+  float: left;
+  margin: 30px 0 30px 0;
+}
+
+.home-button {
+  border-color: #000000;
+  border-width: 3px;
+  border-radius: 50%;
+  float: right;
+  height: 85px;
+  width: 85px;
+  background: no-repeat center #ffffff @castleIcon;
+  background-size: 55px;
+}
+
+/*-------------------------Mid-Row-----------------------------------*/
+
+.playerStats {
+  margin: 5px auto 15px;
+  height: 235px;
+  width: 300px;
+  background-size: 120%;
+}
+
+.blue-player {
+  background: no-repeat center @bluePlayerBanner;
+  .playerStats();
+}
+
+.red-player {
+  background: no-repeat center @redPlayerBanner;
+  .playerStats();
+}
+
+.green-player {
+  background: no-repeat center @greenPlayerBanner;
+  .playerStats();
+}
+
+.purple-player {
+  background: no-repeat center @purplePlayerBanner;
+  .playerStats();
+}
+
+
+.playerName {
+  width: 80px;
+  position: absolute;
+  top: 50%;
+  left: 42%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.playerPoints {
+  width: 100px;
+  position: absolute;
+  top: 64%;
+  left: 39%;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+section.mapWrapper {
+  max-width: 980px;
+}
+
+.card-preview {
+  width: 150px;
+  position: relative;
+  border-radius: 50%;
+  top: 24%;
+  left: 33%;
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
+
+
+.hint-button {
+  float: left;
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  border: none;
+  background: no-repeat center #FFC400 @hintIcon;
+  background-size: 15px;
+}
+
+.preview-help {
+  margin: 20px 0 0 150px;
+}
+
+.button-circle.btn-md {
+  width: 50px;
+  height: 50px;
+  padding: 7px 10px;
+  border-radius: 25px;
+  font-size: 10px;
+  text-align: center;
+  font-weight: bold;
+  margin: 15px 0 0 30px;
+}
+/*-------------------------Bottom-Column------------------------------*/
+
+.centerToolbar {
+  position: relative;
+  top: -20%;
+  left: 20%;
+}
+
+section.wrapper {
+  max-width: 100%;
+  height: 200px;
+}
+
+.toolbarItems {
+  background-size: 100%;
+  height: 200px;
+  width: 120px;
+  float: left;
+}
+
+.left-background {
+  background: no-repeat center @leftIcon;
+  .toolbarItems();
+}
+
+.pause-background {
+  background: no-repeat center @pauseIcon;
+  .toolbarItems();
+}
+
+.right-background {
+  background: no-repeat center @rightIcon;
+  .toolbarItems();
+}
+
+.toolbar-button {
+  height: 70px;
+  width: 70px;
+  border: none;
+  border-radius: 50%;
+  opacity: 0;
+  position: relative;
+  top: 33%;
+  left: 28%;
+}
+
+.cardPreview-background {
+  background: no-repeat center @cardPreviewBackground;
+  background-size: 118%;
+  height: 400px;
+  width: 400px;
+  float: left;
+  padding: 35px 25px 0 0;
+}
+
+/*-------------------------ANIMATION-------------------------------------*/
+.animationgame {
+  height: 100px;
+  width: 100px;
+  position:absolute;
+  top: 50%;
+}
+
+.transform {
+  position:absolute;
+  z-index: 99;
+  right:calc(100% + 1200px);
+  transition: right 2s;
+  -webkit-transition: right 2s;
+  -moz-transition: right 2s;
+  transition-timing-function: cubic-bezier(.75,1.21,.93,1.1);
+  visibility: visible;
+}
+
+.transform-active {
+  background-color: #45CEE0;
+  right: 0;
+  visibility: hidden;
+}

@@ -1,0 +1,62 @@
+@()
+
+@main("rules") {
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("less/main.css")">
+
+    <div class="container-fluid background-img-rules">
+
+        <div class="row">
+            <div class="col-12">
+                <a class="home-btn" href="home"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="centeredExamples">
+                            <img class="examples" src="@routes.Assets.versioned("images/rules/correct.png")">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="centeredExamples">
+                            <img class="examples" src="@routes.Assets.versioned("images/rules/false.png")">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="centeredExamples">
+                            <img class="examples" src="@routes.Assets.versioned("images/rules/collectPoints.png")">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="rulesStyling">
+                    <div class="row">
+                        <div class="col-12 firstSection">
+                            <h4>Game principle:</h4>
+                            <p>Each player is assigned a random card. He can then place it anywhere on the playing field. The goal is to collect as many points as possible. You get points by placing your card on a card that is already on the field.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 secondSection">
+                            <h4>There are different types of cards:</h4>
+                            <p>meadow, castle and road pieces. For example, a card can also show a meadow and castle. You can for example only place castle pieces on other castle pieces.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 thirdSection">
+                            <h4>How to collect points:</h4>
+                            <p>For castle pieces you get 2 points credited to your account. For roads you get 1 point and for meadows 0 points. The longer the chain of cards, the more points you get. So if you add another card to two already adjoining parts of a castle, you will get 6 points in total.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

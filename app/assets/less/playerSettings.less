@@ -1,0 +1,352 @@
+
+@import "./prototypes.less";
+
+
+/*body {
+  background: no-repeat center center fixed url(../public/images/background-wood.png);
+  background-size: cover;
+}*/
+
+.background-img-playerSettings {
+  background: no-repeat center center fixed @woodBackground;
+  .background-img();
+}
+
+.titleWhite  {
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.start-btn {
+  .btn();
+  background: no-repeat center #ffffff @startGameIcon;
+  background-size: 200px;
+  height: 85px;
+  width: 250px;
+
+}
+
+.start-btn:active {
+  .btn-active();
+}
+
+.home-btn {
+  .btn();
+  background: no-repeat center #ffffff @backIcon;
+  background-size: 50px;
+  height: 45px;
+  width: 125px;
+  margin: 40px 0 0 5px;
+}
+
+.home-btn:active {
+  .btn-active();
+}
+
+.centered-buttons {
+  margin: 20% 0 0 0;
+}
+
+/* -------------- Start ------ Player Images and Button */
+.selectPlayers  {
+  width: 700px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+
+.coverIMG {
+  width: 160px;
+}
+
+.playerButtons {
+  cursor: pointer;
+  width: 180px;
+  height: 48px;
+  border-radius: 8px;
+  margin-top: 40px;
+  overflow: hidden;
+  -webkit-transform: scale(.7);
+}
+
+.playerButtons::after {
+  position: relative;
+  display: block;
+  width: 48px;
+  height: 107%;
+  margin-top: -1px;
+  margin-left: -7px;
+  border-radius: 6px 0 0 6px;
+}
+
+.playerButtons::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 46px;
+  margin-left: -7px;
+  margin-top: -1px;
+  /*Button smooth fill animation*/
+  -webkit-transition: all 200ms cubic-bezier(0.25, 0.75, 0.5, 1.25);
+}
+
+/* Start --- Button fill color */
+.bluePlayer:hover {
+  .playerButtons::before {
+    width: 120%;
+    background-color: @bluePlayerColor;
+  }
+}
+
+.redPlayer:hover {
+  .playerButtons::before {
+    width: 120%;
+    background-color: @redPlayerColor;
+  }
+}
+
+.greenPlayer:hover {
+  .playerButtons::before {
+    width: 120%;
+    background-color: @greenPlayerColor;
+  }
+}
+
+.purplePlayer:hover {
+  .playerButtons::before {
+    width: 120%;
+    background-color: @purplePlayerColor;
+  }
+}
+/* End --- Button fill color */
+
+.player {
+  margin: 80px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column
+}
+
+/* Raise playercover */
+.player:hover .playerCover {
+  -webkit-transform: translateY(-14px) scale(1.04);
+  transform: translateY(-14px) scale(1.04);
+}
+
+/* Start --- Buttons and size */
+.playerButtons {
+  color: #fff;
+  font-size: 22px;
+  text-align: right;
+  padding-right: 20px;
+  line-height: 40px;
+}
+
+.bluePlayer .playerButtons {
+  border: 1px solid @bluePlayerColor;
+}
+.redPlayer .playerButtons {
+  border: 1px solid @redPlayerColor;
+}
+.greenPlayer .playerButtons {
+  border: 1px solid @greenPlayerColor;
+}
+.purplePlayer .playerButtons {
+  border: 1px solid @purplePlayerColor;
+}
+/* End --- Buttons and size */
+
+
+
+/* Start --- Rechteck neben Namen */
+.playerButtons::after {
+  top: -85px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.bluePlayer .playerButtons::after {
+  content: "1";
+  background-color: @bluePlayerColorDark;
+}
+.redPlayer .playerButtons::after {
+  content: "2";
+  background-color: @redPlayerColorDark;
+}
+.greenPlayer .playerButtons::after {
+  content: "3";
+  background-color: @greenPlayerColorDark;
+}
+.purplePlayer .playerButtons::after {
+  content: "4";
+  background-color: @purplePlayerColorDark;
+}
+/* End --- Rechteck neben Namen */
+
+
+.playerCover {
+  -webkit-transition: all 400ms ease-in-out;
+}
+
+.playerCover .coverIMG {
+  -webkit-transition: all 260ms ease-in-out;
+}
+
+/* Backlight für playercover */
+.player .playerCover::after {
+  content: "";
+  z-index: -99;
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  display: block;
+  width: 160px;
+  height: 214px;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Größe für backlight */
+  background-size: 160px 214px;
+  -webkit-filter: blur(24px);
+  filter: blur(24px);
+  -webkit-transition: all 260ms ease-in-out;
+  transition: all 260ms ease-in-out;
+  will-change: transform;
+  -webkit-transform: scale(.6);
+  transform: scale(.6);
+}
+
+.player:hover .playerCover::after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.bluePlayer .playerCover::after {
+  background-image: @bluePlayerCover;
+}
+
+.redPlayer .playerCover::after {
+  background-image: @redPlayerCover;
+}
+
+.greenPlayer .playerCover::after {
+  background-image: @greenPlayerCover;
+}
+
+.purplePlayer .playerCover::after {
+  background-image: @purplePlayerCover;
+}
+
+.bluePlayer .playerButtons .buttonDIV::before {
+  content: 'Sir Bors';
+  position: relative;
+  top: -44px;
+  left: 4px;
+  color: @bluePlayerColor;
+  font-size: 21px;
+  font-weight: 300;
+}
+
+.bluePlayer:hover .playerButtons .buttonDIV::before {
+  color: #fff;
+}
+
+.redPlayer .playerButtons .buttonDIV::before {
+  content: 'King Ludwig';
+  position: relative;
+  top: -44px;
+  left: 9px;
+  color: @redPlayerColor;
+  font-size: 21px;
+  font-weight: 300;
+}
+
+.redPlayer:hover .playerButtons .buttonDIV::before {
+  color: #fff;
+}
+
+.greenPlayer .playerButtons .buttonDIV::before {
+  content: 'Boltar';
+  position: relative;
+  top: -44px;
+  left: 3px;
+  color: @greenPlayerColor;
+  font-size: 21px;
+  font-weight: 300;
+}
+
+.greenPlayer:hover .playerButtons .buttonDIV::before {
+  color: #fff;
+}
+
+.purplePlayer .playerButtons .buttonDIV::before {
+  content: 'Arokh';
+  position: relative;
+  top: -44px;
+  left: -9px;
+  color: @purplePlayerColor;
+  font-size: 21px;
+  font-weight: 300;
+}
+
+.purplePlayer:hover .playerButtons .buttonDIV::before {
+  color: #fff;
+}
+
+.playerCoverActive {
+  -webkit-transform: translateY(-14px) scale(1.04);
+  transform: translateY(-14px) scale(1.04);
+  content: "";
+  z-index: -99;
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  display: block;
+  width: 190px;
+  height: 214px;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Größe für backlight */
+  background-size: 160px 214px;
+  -webkit-filter: blur(24px);
+  filter: blur(24px);
+}
+
+
+/* Player Selected */
+
+.noneSelected {
+  background: center center no-repeat @noPlayerSelected;
+  background-size: 300px;
+  height: 250px;
+}
+
+.blueSelected {
+  background: center center no-repeat @bluePlayerSelected;
+  background-size: 300px;
+  height: 250px;
+}
+
+.redSelected {
+  background: center center no-repeat @redPlayerSelected;
+  background-size: 300px;
+  height: 250px;
+}
+
+.greenSelected {
+  background: center center no-repeat @greenPlayerSelected;
+  background-size: 300px;
+  height: 250px;
+}
+
+.purpleSelected {
+  background: center center no-repeat @purplePlayerSelected;
+  background-size: 300px;
+  height: 250px;
+}
+
+

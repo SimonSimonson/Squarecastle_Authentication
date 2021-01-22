@@ -1,0 +1,103 @@
+/*---------------------------------Images---------------------------------*/
+
+@woodBackground: url("/assets/images/backgrounds/background-wood.png");
+@mapBackground: url("/assets/images/backgrounds/mapBackground.png");
+@papyrusBackground: url("/assets/images/backgrounds/papyrus.png");
+
+@castleIcon: url("/assets/images/castle.png");
+
+/* Button Icons */
+@startGameIcon: url("/assets/images/buttons/start.png");
+@backIcon: url("/assets/images/buttons/back.png");
+@rulesIcon: url("/assets/images/buttons/rules.png");
+@hintIcon: url("/assets/images/buttons/hint.png");
+
+/* Toolbar */
+@rightIcon: url("/assets/images/shields/right.png");
+@leftIcon: url("/assets/images/shields/left.png");
+@pauseIcon: url("/assets/images/shields/pause.png");
+
+@cardPreviewBackground: url("/assets/images/shields/cardPreview.png");
+
+/* Player Cover */
+@bluePlayerCover: url("/assets/images/players/bluePlayer.png");
+@redPlayerCover: url("/assets/images/players/redPlayer.png");
+@greenPlayerCover: url("/assets/images/players/greenPlayer.png");
+@purplePlayerCover: url("/assets/images/players/purplePlayer.png");
+
+/* Player Banner */
+@bluePlayerBanner: url("/assets/images/players/blueBanner.png");
+@redPlayerBanner: url("/assets/images/players/redBanner.png");
+@greenPlayerBanner: url("/assets/images/players/greenBanner.png");
+@purplePlayerBanner: url("/assets/images/players/purpleBanner.png");
+
+/* Player Selected */
+@noPlayerSelected: url("/assets/images/players/noneSelected.png");
+@bluePlayerSelected: url("/assets/images/players/blueSelected.png");
+@redPlayerSelected: url("/assets/images/players/redSelected.png");
+@greenPlayerSelected: url("/assets/images/players/greenSelected.png");
+@purplePlayerSelected: url("/assets/images/players/purpleSelected.png");
+
+
+/*------------------------------------Color-------------------------------*/
+
+@bluePlayerColor: #3a45b4;
+@redPlayerColor: #a62829;
+@greenPlayerColor: #336a5e;
+@purplePlayerColor: #74419d;
+
+@bluePlayerColorDark: #0d1673;
+@redPlayerColorDark: #741511;
+@greenPlayerColorDark: #1a3a32;
+@purplePlayerColorDark: #491177;
+
+/*----------------------------------Prototypes----------------------------*/
+.red{
+  background-color : @redPlayerColor
+}
+.blue{
+  background-color: @bluePlayerColor
+}
+.green{
+  background-color: @greenPlayerColor
+}
+.purple{
+  background-color: @purplePlayerColor
+}
+/* Background */
+.background-img {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+}
+
+/* Buttons */
+.btn {
+  position: relative;
+  color: rgba(255, 255, 255, 1);
+  //font-weight: bold;
+  //font-size: 3em;
+  //text-decoration: none;
+  display: block;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: 0 9px 0 rgba(150, 150, 150, 1),0 9px 25px rgba(0, 0, 0, .9);
+  float: left;
+}
+
+.btn-active {
+  box-shadow: 0 3px 0 rgba(150, 150, 150, 1),0 3px 6px rgba(0, 0, 0, .9);
+  position: relative;
+  top: 6px;
+}
+
+.centerButton {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

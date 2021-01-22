@@ -1,0 +1,30 @@
+@main("") {
+    <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/main.css")' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script>
+            function event(str){
+                if(location.href.includes("squarecastle")) {
+                    location.href = "/"
+                }else
+                    location.href = location.href+"/"+str
+            }
+    </script>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a onclick="event('squarecastle')" class="navbar-brand" href="squarecastle">New Game</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a onclick="event('home')" class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a onclick="event('home')" class="nav-link" href="home">Rules</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+}

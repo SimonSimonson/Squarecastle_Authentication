@@ -1,0 +1,74 @@
+
+@import "./prototypes.less";
+/*body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-perspective: 90rem;
+  perspective: 90rem;
+  -webkit-perspective-origin: 34% 61%;
+  perspective-origin: 34% 61%;
+  background: no-repeat center center fixed url(../public/images/background-wood.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+
+.background-img-rules {
+  background: no-repeat center center fixed @woodBackground;
+  .background-img();
+}
+
+.rulesStyling {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  height: 700px;
+  width: 530px;
+  background: no-repeat center @papyrusBackground;
+  background-size: 100%;
+  margin: 40px auto 0;
+
+
+}
+
+.firstSection{
+  padding: 80px 100px 0 100px;
+}
+.secondSection{
+  padding: 20px 100px 0 100px;
+}
+.thirdSection{
+  padding: 0 100px 40px 100px;
+}
+
+
+
+.home-btn {
+  .btn();
+  background: no-repeat center #ffffff @backIcon;
+  background-size: 50px;
+  height: 45px;
+  width: 125px;
+  margin: 40px 0 0 5px;
+}
+.home-btn:active {
+  .btn-active();
+}
+
+.examples {
+  width: 400px;
+}
+
+.centeredExamples {
+  display: block;
+  margin: 30px auto 0;
+  width: 50%;
+}

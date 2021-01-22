@@ -1,0 +1,67 @@
+
+
+@import "./prototypes.less";
+
+/*body {
+  background: no-repeat center center fixed url(../public/images/mapBackground.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}*/
+
+
+
+.background-img-startScreen {
+  background: no-repeat center center fixed @mapBackground;
+  .background-img();
+}
+
+.topRow {
+  height: 85%;
+}
+
+.bottomRow {
+  height: 15%;
+}
+
+.header {
+  padding: 100px 0 0 0;
+  text-align: center;
+}
+
+.description {
+  padding: 50px 0 200px 0;
+  text-align: center;
+}
+
+
+
+/*---------------------------- Buttons -----------------------*/
+
+
+
+.playerSettings-btn {
+  .btn();
+  background: no-repeat center #ffffff @startGameIcon;
+  background-size: 200px;
+  height: 85px;
+  width: 250px;
+}
+
+.playerSettings-btn:active {
+  .btn-active();
+}
+
+.rules-btn {
+  .btn();
+  background: no-repeat center #ffffff @rulesIcon;
+  background-size: 100px;
+  height: 85px;
+  width: 250px;
+}
+
+.rules-btn:active {
+  .btn-active();
+}
