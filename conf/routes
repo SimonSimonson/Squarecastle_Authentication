@@ -3,7 +3,13 @@
 # ~~~~
 
 # Home page
-GET         /                                controllers.ApplicationController.index
+# GET         /                                controllers.ApplicationController.index
+
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~
+
+
 GET         /signOut                         controllers.ApplicationController.signOut
 GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)
 
@@ -32,6 +38,24 @@ POST        /password/change                 controllers.ChangePasswordControlle
 GET         /account/email/:email            controllers.ActivateAccountController.send(email: String)
 GET         /account/activate/:token         controllers.ActivateAccountController.activate(token: java.util.UUID)
 
+
+# An example controller showing a sample home page
+GET     /                           controllers.GameController.about()
+GET     /home                       controllers.GameController.about()
+GET     /playerSettings             controllers.GameController.playerSettings()
+GET     /rules                      controllers.GameController.rules()
+GET     /squarecastle               controllers.GameController.squarecastle
+GET     /websocket                  controllers.GameController.socket
+
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                    controllers.Assets.versioned(file)
+
+POST    /squarecastle/api/command   controllers.GameController.JsonCommand
+GET     /json                       controllers.GameController.SendController
+
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                    controllers.Assets.versioned(path="/public", file: Asset)
++nocsrf
 ->          /webjars                         webjars.Routes

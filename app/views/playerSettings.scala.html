@@ -1,12 +1,28 @@
-@()
+@import play.api.i18n.Messages
+@import play.api.mvc.RequestHeader
+@import org.webjars.play.WebJarsUtil
+@import controllers.AssetsFinder
+@import play.api.data._
+@import forms.TotpSetupForm.Data
+@import com.mohiva.play.silhouette.impl.providers.GoogleTotpCredentials
+@import com.mohiva.play.silhouette.impl.providers.GoogleTotpInfo
 
+@this()(implicit webJarsUtil: WebJarsUtil, assets: AssetsFinder)
+@(user: models.User, totpInfoOpt: Option[GoogleTotpInfo], totpDataOpt: Option[(Form[Data], GoogleTotpCredentials)] = None)(implicit request: RequestHeader, messages: Messages)
+
+@implicitFieldConstructor = @{
+    b4.vertical.fieldConstructor()
+}
 
 @main("playerSettings") {
+
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("less/main.css")">
-    <script src='@routes.Assets.versioned("javascripts/jquery-3.2.1.min.js")' type="application/javascript"></script>
-    <script src='@routes.Assets.versioned("javascripts/square.js")' type="application/javascript"></script>
-    <script src='@routes.Assets.versioned("javascripts/playerSettings.js")' type="application/javascript"></script>
+    <script src='@assets.path("javascripts/jquery-3.2.1.min.js")' type="application/javascript"></script>
+    <script src='@assets.path("javascripts/square.js")' type="application/javascript"></script>
+    <script src='@assets.path("/javascripts/playerSettings.js'") type="application/javascript"></script>
 
     <div class="container-fluid background-img-playerSettings">
         @*<div class="row">
@@ -19,32 +35,32 @@
         </div>*@
         <div class="row">
             <div class="col-12">
-                <img class="selectPlayers" src="@routes.Assets.versioned("images/selectPlayers.png")">
+                <img class="selectPlayers" src="@assets.path("images/selectPlayers.png")">
             </div>
         </div>
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-6 col-lg-2">
                 <div class="player bluePlayer">
-                    <div class="playerCover"><img class="coverIMG" src="@routes.Assets.versioned("images/players/bluePlayer.png")"></div>
+                    <div class="playerCover"><img class="coverIMG" src="@assets.path("images/players/bluePlayer.png")"></div>
                     <button id="btnP1" class="playerButtons"><div class="buttonDIV"></div></button>
                 </div>
             </div>
             <div class="col-6 col-lg-2">
                 <div class="player redPlayer">
-                    <div class="playerCover"><img class="coverIMG" src="@routes.Assets.versioned("images/players/redPlayer.png")"></div>
+                    <div class="playerCover"><img class="coverIMG" src="@assets.path("images/players/redPlayer.png")"></div>
                     <button id="btnP2" class="playerButtons"><div class="buttonDIV"></div></button>
                 </div>
             </div>
             <div class="col-6 col-lg-2">
                 <div class="player greenPlayer">
-                    <div class="playerCover"><img class="coverIMG" src="@routes.Assets.versioned("images/players/greenPlayer.png")"></div>
+                    <div class="playerCover"><img class="coverIMG" src="@assets.path("images/players/greenPlayer.png")"></div>
                     <button id="btnP3" class="playerButtons"><div class="buttonDIV"></div></button>
                 </div>
             </div>
             <div class="col-6 col-lg-2">
                 <div class="player purplePlayer">
-                    <div class="playerCover"><img class="coverIMG" src="@routes.Assets.versioned("images/players/purplePlayer.png")"></div>
+                    <div class="playerCover"><img class="coverIMG" src="@assets.path("images/players/purplePlayer.png")"></div>
                     <button id="btnP4" class="playerButtons"><div class="buttonDIV"></div></button>
                 </div>
             </div>

@@ -3,9 +3,16 @@ package controllers
 import akka.actor.{ ActorSystem, Props }
 import _root_.controllers.WebSockets.SquarecastleWebsocketactor
 import akka.stream.Materializer
+import com.mohiva.play.silhouette.api.Silhouette
+import com.mohiva.play.silhouette.api.actions.SecuredRequest
+import com.mohiva.play.silhouette.impl.providers.GoogleTotpInfo
 import play.api.Play.materializer
+import utils.auth.DefaultEnv
 
-//import controllers.WebSockets.SquarecastleWebsocketactor
+import scala.concurrent.ExecutionContext
+
+//import controllers
+// .WebSockets.SquarecastleWebsocketactor
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.scala.ScalaObjectMapper
 import gamecontrol.supervisor.{ SupervisorInterface, supervisor }
@@ -20,7 +27,13 @@ import play.api.libs.streams.ActorFlow
 
 import scala.swing.Reactor
 
-class GameController @Inject() (cc: ControllerComponents)(implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) with I18nSupport with Reactor {
+class GameController @Inject() (
+  scc: SilhouetteControllerComponents,
+  about: views.html.rules,
+  playersettings: views.html.playerSettings,
+  game: views.html.squarecastle,
+  silhouette: Silhouette[DefaultEnv]
+)(implicit ex: ExecutionContext, system: ActorSystem, mat: Materializer) extends SilhouetteController(scc) {
 
   var supervisor: SupervisorInterface = scala.main.supervisor
   var controller: ControllerInterface = scala.main.Controller
@@ -38,33 +51,28 @@ class GameController @Inject() (cc: ControllerComponents)(implicit system: Actor
   //      this.send(supervisor)
 
   //}
-  def put(s: String): Action[AnyContent] = Action {
 
-    controller.befehl = s
-    //supervisor.controller.befehl = s;
-    supervisor.newRoundactive()
-    //supervisor.state = !supervisor.state
-    //supervisor.newRound()
-
-    Ok(views.html.squarecastle("gesendet", supervisor, player1color, player2color, player1name, player2name)).withHeaders("Acces-Control-Allow-Origin" -> "http://localhost:8080")
-
-  }
-  def squarecastle: Action[AnyContent] = Action {
+  def squarecastle: Action[AnyContent] = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
     supervisor.testfall();
     supervisor.newRound()
-    Ok(views.html.squarecastle(supervisor.controller.ImagePath(supervisor.card, supervisor.card), supervisor, player1color, player2color, player1name, player2name)).withHeaders("Acces-Control-Allow-Origin" -> "http://localhost:8080")
+    authInfoRepository.find[GoogleTotpInfo](request.identity.loginInfo).map { totpInfoOpt =>
+      Ok(game(supervisor.controller.ImagePath(supervisor.card, supervisor.card), supervisor, player1color, player2color, player1name, player2name, request.identity, totpInfoOpt))
+    }
   }
-
-  def playerSettings(): Action[AnyContent] = Action {
+  def playerSettings: Action[AnyContent] = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
     supervisor = scala.main.supervisor
     controller = scala.main.Controller
     supervisor.controller = controller
     supervisor.firstround = true;
-    Ok(views.html.playerSettings()).withHeaders("Acces-Control-Allow-Origin" -> "http://localhost:8080")
+    authInfoRepository.find[GoogleTotpInfo](request.identity.loginInfo).map { totpInfoOpt =>
+      Ok(playersettings(request.identity, totpInfoOpt))
+    }
   }
 
-  def rules(): Action[AnyContent] = Action {
-    Ok(views.html.rules()).withHeaders("Acces-Control-Allow-Origin" -> "http://localhost:8080")
+  def rules: Action[AnyContent] = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
+    authInfoRepository.find[GoogleTotpInfo](request.identity.loginInfo).map { totpInfoOpt =>
+      Ok(about(request.identity, totpInfoOpt))
+    }
   }
 
   def about(): Action[AnyContent] = Action {
