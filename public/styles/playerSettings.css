@@ -1,5 +1,5 @@
 body {
-    background: no-repeat center center fixed url(../images/background-wood.png);
+    background: no-repeat center center fixed url(../images/backgrounds/background-wood.png);
     background-size: cover;
 }
 
@@ -178,7 +178,7 @@ body {
 }
 
 .bluePlayer .playerCover::after {
-    background-image: url(../images/playerSettings-blau.png);
+    background-image: url(../images/players/playerSettings-blau.png);
 }
 
 .redPlayer .playerCover::after {

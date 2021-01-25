@@ -17,7 +17,7 @@
 
 
 body {
-    background: no-repeat center center fixed url(../images/mapBackground.png);
+    background: no-repeat center center fixed url(../images/backgrounds/mapBackground.png);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -44,7 +44,7 @@ body {
 
 .playerSettings-btn {
     position: relative;
-    background: no-repeat center #ffffff url(../images/start.png);
+    background: no-repeat center #ffffff url(../images/buttons/start.png);
     background-size: 200px;
     color: rgba(255, 255, 255, 1);
     font-weight: bold;
@@ -69,7 +69,7 @@ body {
 
 .rules-btn {
     position: relative;
-    background: no-repeat center #ffffff url(../images/rules.png);
+    background: no-repeat center #ffffff url(../images/buttons/rules.png);
     background-size: 100px;
     color: rgba(255, 255, 255, 1);
     font-weight: bold;

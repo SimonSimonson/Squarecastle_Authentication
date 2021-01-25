@@ -5,11 +5,38 @@
   .background-img();
 }
 
+.row {
+  margin: 0;
+}
+
 
 /*-------------------------Top-Row------------------------------------*/
 .title {
-  float: left;
-  margin: 30px 0 30px 0;
+  position: absolute;
+  top: 5%;
+  left: 30%;
+}
+
+@media only screen and (min-width: 1500px) {
+  .title {
+    position: absolute;
+    top: 5%;
+    left: 38%;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  .title {
+    position: absolute;
+    top: 3%;
+    left: 32%;
+  }
+}
+@media only screen and (min-width: 2100px) {
+  .title {
+    position: absolute;
+    top: 5%;
+    left: 38%;
+  }
 }
 
 .home-button {
@@ -72,6 +99,39 @@
   font-weight: bold;
 }
 
+.gridWidth {
+  max-width: 800px;
+  position: relative;
+  top: 20%;
+  left: 8%;
+}
+
+@media only screen and (min-width: 1500px) {
+  .gridWidth {
+    max-width: 800px;
+    position: relative;
+    top: 20%;
+    left: 15%;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .gridWidth {
+    max-width: 1200px;
+    position: relative;
+    top: 13%;
+    left: 0;
+  }
+}
+
+@media only screen and (min-width: 2100px) {
+  .gridWidth {
+    max-width: 1500px;
+    position: relative;
+    top: 18%;
+    left: 5%;
+  }
+}
 
 section.mapWrapper {
   max-width: 980px;
@@ -86,7 +146,6 @@ section.mapWrapper {
   transition-duration: 0.8s;
   transition-property: transform;
 }
-
 
 .hint-button {
   float: left;
@@ -116,8 +175,8 @@ section.mapWrapper {
 
 .centerToolbar {
   position: relative;
-  top: -20%;
-  left: 20%;
+  top: 35%;
+  left: 25%;
 }
 
 section.wrapper {
@@ -147,6 +206,28 @@ section.wrapper {
   .toolbarItems();
 }
 
+@media only screen and (min-width: 1500px) {
+  .centerToolbar {
+    position: relative;
+    top: 80%;
+    left: 30%;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  .centerToolbar {
+    position: relative;
+    top: 33%;
+    left: 15%;
+  }
+}
+@media only screen and (min-width: 2100px) {
+  .centerToolbar {
+    position: relative;
+    top: 80%;
+    left: 30%;
+  }
+}
+
 .toolbar-button {
   height: 70px;
   width: 70px;
@@ -161,12 +242,41 @@ section.wrapper {
 .cardPreview-background {
   background: no-repeat center @cardPreviewBackground;
   background-size: 118%;
-  height: 400px;
-  width: 400px;
-  float: left;
-  padding: 35px 25px 0 0;
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  top: 30%;
+  left: 78%;
 }
 
+
+@media only screen and (min-width: 1500px) {
+  .cardPreview-background {
+    position: absolute;
+    top: 20%;
+    left: 88%;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  .cardPreview-background {
+    background-size: 118%;
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    top: 33%;
+    left: 82%;
+  }
+}
+@media only screen and (min-width: 2100px) {
+  .cardPreview-background {
+    background-size: 118%;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    top: 30%;
+    left: 79%;
+  }
+}
 /*-------------------------ANIMATION-------------------------------------*/
 .animationgame {
   height: 100px;
