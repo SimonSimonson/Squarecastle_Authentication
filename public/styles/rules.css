@@ -1,0 +1,64 @@
+
+body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-perspective: 90rem;
+    perspective: 90rem;
+    -webkit-perspective-origin: 34% 61%;
+    perspective-origin: 34% 61%;
+    background: no-repeat center center fixed url(../images/background-wood.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.rulesStyling {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    background: no-repeat center center fixed url(../images/papyrus.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.home-btn {
+    position: relative;
+    background: no-repeat center #ffffff url(../images/back.png);
+    background-size: 50px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: bold;
+    font-size: 3em;
+    text-decoration: none;
+    display: block;
+    padding: 4px;
+    border-radius: 8px;
+    box-shadow: 0 9px 0 rgba(150, 150, 150, 1),0px 9px 25px rgba(0, 0, 0, .9);
+    height: 45px;
+    width: 125px;
+    float: left;
+    margin: 40px 0px 0px 5px;
+}
+.home-btn:active {
+    box-shadow: 0 3px 0 rgba(150, 150, 150, 1),0px 3px 6px rgba(0, 0, 0, .9);
+    position: relative;
+    top: 6px;
+}
+
+.examples {
+    width: 400px;
+}
+
+.centeredExamples {
+    left: 30%;
+    top: 30%;
+}

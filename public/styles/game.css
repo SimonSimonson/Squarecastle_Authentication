@@ -1,0 +1,177 @@
+
+.background-img {
+    background: no-repeat center center fixed url(../images/background-wood.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*-------------------------Navbar-Row--------------------------------*/
+
+
+
+/*-------------------------Top-Row------------------------------------*/
+.title {
+    float: left;
+    margin: 30px 0px 30px 0px;
+}
+.home-button {
+    border-color: #000000;
+    border-width: 3px;
+    border-radius: 50%;
+    float: right;
+    height: 85px;
+    width: 85px;
+    background: no-repeat center #ffffff url(../images/castle.png);
+    background-size: 55px;
+}
+
+
+
+
+/*-------------------------Mid-Row-----------------------------------*/
+.blue-player {
+    margin: 0 auto;
+    background: no-repeat center url(../images/banner-blau.png);
+    height: 235px;
+    width: 300px;
+    background-size: 106%;
+}
+
+.red-player {
+    margin: 0 auto;
+    background: no-repeat center url(../images/banner-rot.png);
+    height: 235px;
+    width: 300px;
+    background-size: 106%;
+}
+
+section.mapWrapper {
+    max-width: 980px;
+}
+
+.map {
+    background: no-repeat center url(../images/map.png);
+    background-size: 320px;
+    height: 300px;
+}
+
+.card-preview {
+    width: 150px;
+    position: relative;
+    top: 24%;
+    left: 33%;
+    transition-duration: 0.8s;
+    transition-property: transform;
+}
+
+.hint-button {
+    float: left;
+    border-radius: 50%;
+    height: 65px;
+    width: 65px;
+    border: none;
+    background: no-repeat center #FFC400 url(../images/hint.png);
+    background-size: 15px;
+}
+
+.preview-help {
+    margin: 20px 0 0 150px;
+}
+
+.button-circle.btn-md {
+    width: 50px;
+    height: 50px;
+    padding: 7px 10px;
+    border-radius: 25px;
+    font-size: 10px;
+    text-align: center;
+    font-weight: bold;
+    margin: 15px 0 0 30px;
+}
+/*-------------------------Bottom-Column------------------------------*/
+
+/*
+.toolbar {
+     background: no-repeat center url(../images/toolbar.png);
+     background-size: 110%;
+     height: 200px;
+     width: 800px;
+     margin: -100px 0 0 -80px;
+ }
+*/
+
+section.wrapper {
+    max-width: 100%;
+    height: 200px;
+}
+
+.left-background {
+    background: no-repeat center url(../images/left.png);
+    background-size: 100%;
+    height: 200px;
+    width: 120px;
+    float: left;
+}
+
+.pause-background {
+    background: no-repeat center url(../images/pause.png);
+    background-size: 100%;
+    height: 200px;
+    width: 120px;
+    float: left;
+
+}
+
+.right-background {
+    background: no-repeat center url(../images/right.png);
+    background-size: 100%;
+    height: 200px;
+    width: 120px;
+    float: left;
+}
+
+.toolbar-button {
+    height: 70px;
+    width: 70px;
+    border: none;
+    border-radius: 50%;
+    opacity: 0;
+    position: relative;
+    top: 33%;
+    left: 28%;
+}
+
+.round-background {
+    background: no-repeat center url(../images/round.png);
+    background-size: 100%;
+    height: 200px;
+    width: 200px;
+    float: left;
+}
+/*_____________________ANIMATION*/
+.animationgame {
+    background-color: #218D9B;
+    height: 100px;
+    width: 100px;
+    position:absolute;
+    top: 50%;
+}
+
+.transform {
+    position:absolute;
+    z-index: 99;
+    right:calc(100% + 1200px);
+    transition: right 2s;
+    -webkit-transition: right 2s;
+    -moz-transition: right 2s;
+    transition-timing-function: cubic-bezier(.75,1.21,.93,1.1);
+    visibility: visible;
+}
+
+.transform-active {
+    background-color: #45CEE0;
+    right: 0;
+    visibility: hidden;
+}
