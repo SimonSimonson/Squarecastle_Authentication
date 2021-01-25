@@ -22,7 +22,7 @@ class ApplicationController @Inject() (
    *
    * @return The result to display.
    */
-  def index = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
+  def index: Action[AnyContent] = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
     authInfoRepository.find[GoogleTotpInfo](request.identity.loginInfo).map { totpInfoOpt =>
       Ok(home(request.identity, totpInfoOpt))
     }

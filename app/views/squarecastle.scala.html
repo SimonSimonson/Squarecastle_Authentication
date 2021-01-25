@@ -28,15 +28,15 @@
 *@
 
 @main("Willkommen bei SquareCastle") {
-    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("less/main.css")">
+    <link rel="stylesheet" media="screen" href="@assets.path("less/main.css")">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src='@routes.Assets.versioned("javascripts/playerSettings.js")' type="application/javascript"></script>
-    <script src='@routes.Assets.versioned("javascripts/square.js")' type="application/javascript"></script>
+    <script src='@assets.path("javascripts/playerSettings.js")' type="application/javascript"></script>
+    <script src='@assets.path("javascripts/square.js")' type="application/javascript"></script>
 
 
     <script>
         function getPath(var x, var y) {
-            @routes.Assets.versioned(supervisor.controller.ImagePath(supervisor.map.field(0)(0), supervisor.card))
+            @assets.path(supervisor.controller.ImagePath(supervisor.map.field(0)(0), supervisor.card))
         }
     </script>
     <div class="container-fluid background-img-game">
@@ -49,7 +49,7 @@
                             <div class="col-xl-2"></div>
                             <div class="col-12 col-xl-8">
                                 <div class="title">
-                                    <img src="@routes.Assets.versioned("images/title.png")" width="600">
+                                    <img src="@assets.path("images/title.png")" width="600">
                                 </div>
                             </div>
                             <div class="col-xl-2"></div>
@@ -99,7 +99,7 @@
                                 <div class="row">
                                 @for(x <- 0 until 12) {
                                     <div id="@x @y" class="col-1 grid-hover" instruction="0" x="@x" y="@y" onclick="calc(this);">
-                                        <img src=@routes.Assets.versioned(supervisor.controller.ImagePath(supervisor.map.field(x)(y), supervisor.card)) >
+                                        <img src=@assets.path(supervisor.controller.ImagePath(supervisor.map.field(x)(y), supervisor.card)) >
                                     </div>
                                 }
                                 </div>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="col-6 col-xl-4">
                         <div class="cardPreview-background" id="newcard">
-                            <img id="preview" src="@routes.Assets.versioned(s)" class="card-preview">
+                            <img id="preview" src="@assets.path(s)" class="card-preview">
                         </div>
                     </div>
                 </div>

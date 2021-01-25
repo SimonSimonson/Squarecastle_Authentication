@@ -31,6 +31,7 @@ class GameController @Inject() (
   scc: SilhouetteControllerComponents,
   about: views.html.rules,
   playersettings: views.html.playerSettings,
+  index: views.html.index,
   game: views.html.squarecastle,
   silhouette: Silhouette[DefaultEnv]
 )(implicit ex: ExecutionContext, system: ActorSystem, mat: Materializer) extends SilhouetteController(scc) {
@@ -74,13 +75,14 @@ class GameController @Inject() (
       Ok(about(request.identity, totpInfoOpt))
     }
   }
-
-  def about(): Action[AnyContent] = Action {
+  def about: Action[AnyContent] = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
     supervisor = scala.main.supervisor
     controller = scala.main.Controller
     supervisor.controller = controller
     supervisor.firstround = true;
-    Ok(views.html.index()).withHeaders("Acces-Control-Allow-Origin" -> "http://localhost:8080")
+    authInfoRepository.find[GoogleTotpInfo](request.identity.loginInfo).map { totpInfoOpt =>
+      Ok(index(request.identity, totpInfoOpt))
+    }
   }
 
   def JsonCommand = Action(parse.json) {
