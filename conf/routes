@@ -43,15 +43,19 @@ GET         /account/activate/:token         controllers.ActivateAccountControll
 #GET     /                           controllers.GameController.about()
 GET     /home                       controllers.GameController.about()
 GET     /playerSettings             controllers.GameController.playerSettings()
++nocsrf
 GET     /rules                      controllers.GameController.rules()
++nocsrf
 GET     /squarecastle               controllers.GameController.squarecastle
++nocsrf
 GET     /websocket                  controllers.GameController.socket
-
++nocsrf
 # Map static resources from the /public folder to the /assets URL path
 
 POST    /squarecastle/api/command   controllers.GameController.JsonCommand
++nocsrf
 GET     /json                       controllers.GameController.SendController
-
++nocsrf
 
 
 
