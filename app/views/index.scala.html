@@ -9,7 +9,6 @@
 
 @this()(implicit webJarsUtil: WebJarsUtil, assets: AssetsFinder)
 @(user: models.User, totpInfoOpt: Option[GoogleTotpInfo], totpDataOpt: Option[(Form[Data], GoogleTotpCredentials)] = None)(implicit request: RequestHeader, messages: Messages)
-
 @implicitFieldConstructor = @{
     b4.vertical.fieldConstructor()
 }
@@ -38,12 +37,12 @@
                 <div class="row bottom">
                     <div class="col-6">
                         <div class="centerButton">
-                            <a class="playerSettings-btn" href="playerSettings"></a>
+                            <a class="playerSettings-btn" href="/signIn"></a>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="centerButton">
-                            <a class="rules-btn" href="rules"></a>
+                            <a class="rules-btn" href="rules.scala.html"></a>
                         </div>
                     </div>
                 </div>
