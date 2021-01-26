@@ -8,7 +8,7 @@
 @import com.mohiva.play.silhouette.impl.providers.GoogleTotpInfo
 
 @this()(implicit webJarsUtil: WebJarsUtil, assets: AssetsFinder)
-@(user: models.User, totpInfoOpt: Option[GoogleTotpInfo], totpDataOpt: Option[(Form[Data], GoogleTotpCredentials)] = None)(implicit request: RequestHeader, messages: Messages)
+@(totpDataOpt: Option[(Form[Data], GoogleTotpCredentials)] = None)
 @implicitFieldConstructor = @{
     b4.vertical.fieldConstructor()
 }

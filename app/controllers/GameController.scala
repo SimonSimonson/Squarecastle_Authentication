@@ -1,12 +1,13 @@
 package controllers
 
-import akka.actor.{ ActorSystem, Props }
+import akka.actor.{ActorSystem, Props}
 import _root_.controllers.WebSockets.SquarecastleWebsocketactor
 import akka.stream.Materializer
 import com.mohiva.play.silhouette.api.Silhouette
 import com.mohiva.play.silhouette.api.actions.SecuredRequest
 import com.mohiva.play.silhouette.impl.providers.GoogleTotpInfo
 import play.api.Play.materializer
+import play.api.mvc.Result
 import utils.auth.DefaultEnv
 
 import scala.concurrent.ExecutionContext
@@ -87,14 +88,8 @@ class GameController @Inject() (
     }
   }
 
-  def about: Action[AnyContent] = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
-    supervisor = scala.main.supervisor
-    controller = scala.main.Controller
-    supervisor.controller = controller
-    supervisor.firstround = true;
-    authInfoRepository.find[GoogleTotpInfo](request.identity.loginInfo).map { totpInfoOpt =>
-      Ok(index(request.identity, totpInfoOpt))
-    }
+  def home: Result = {
+      Ok(index()).withHeaders("Acces-Control-Allow-Origin" -> "http://localhost:8080")
   }
 
   def JsonCommand = Action(parse.json) {
