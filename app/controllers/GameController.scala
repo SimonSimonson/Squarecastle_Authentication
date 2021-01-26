@@ -53,7 +53,12 @@ class GameController @Inject() (
 
   //}
 
-  def squarecastle: Action[AnyContent] = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
+  def squarecastle(s: String): Action[AnyContent] = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
+    supervisor = scala.main.supervisor
+    controller = scala.main.Controller
+    supervisor.controller = controller
+    supervisor.firstround = true;
+    addplayers(s.charAt(0).toString, s.charAt(1).toString)
     supervisor.testfall();
     supervisor.newRound()
     authInfoRepository.find[GoogleTotpInfo](request.identity.loginInfo).map { totpInfoOpt =>
@@ -147,43 +152,46 @@ class GameController @Inject() (
     if (instruction == "setPlayers") {
       val player1 = (value \ "x").get.toString.replace("\"", "")
       val player2 = (value \ "y").get.toString.replace("\"", "")
-      player1 match {
-        case "0" =>
-          player1name = "Sir Bors"
-          player1color = "blue"
-        case "1" =>
-          player1name = "King Ludwig"
-          player1color = "red"
-        case "2" =>
-          player1name = "Boltar"
-          player1color = "green"
-        case "3" =>
-          player1name = "Arokh"
-          player1color = "purple"
-        case _ => println("Fehler bei der Spielerindex erkennung")
-
-      }
-      player2 match {
-        case "0" =>
-          player2name = "Sir Bors"
-          player2color = "blue"
-        case "1" =>
-          player2name = "King Ludwig"
-          player2color = "red"
-        case "2" =>
-          player2name = "Boltar"
-          player2color = "green"
-        case "3" =>
-          player2name = "Arokh"
-          player2color = "purple"
-        case _ => println("Fehler bei der Spielerindex erkennung")
-      }
-      supervisor.p1 = new Player(player1name)
-      supervisor.p2 = new Player(player2name)
-      println(player1color + ": " + supervisor.p1 + " " + player2color + ": " + supervisor.p2)
+      addplayers(player1, player2)
       return "init"
     }
     instruction
+  }
+  def addplayers(player1: String, player2: String): Unit = {
+    player1 match {
+      case "0" =>
+        player1name = "Sir Bors"
+        player1color = "blue"
+      case "1" =>
+        player1name = "King Ludwig"
+        player1color = "red"
+      case "2" =>
+        player1name = "Boltar"
+        player1color = "green"
+      case "3" =>
+        player1name = "Arokh"
+        player1color = "purple"
+      case _ => println("Fehler bei der Spielerindex erkennung")
+
+    }
+    player2 match {
+      case "0" =>
+        player2name = "Sir Bors"
+        player2color = "blue"
+      case "1" =>
+        player2name = "King Ludwig"
+        player2color = "red"
+      case "2" =>
+        player2name = "Boltar"
+        player2color = "green"
+      case "3" =>
+        player2name = "Arokh"
+        player2color = "purple"
+      case _ => println("Fehler bei der Spielerindex erkennung")
+    }
+    supervisor.p1 = new Player(player1name)
+    supervisor.p2 = new Player(player2name)
+    println(player1color + ": " + supervisor.p1 + " " + player2color + ": " + supervisor.p2)
   }
   def clicked(befehl: String): Unit = {
     controller.befehl = befehl

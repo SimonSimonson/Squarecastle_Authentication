@@ -46,7 +46,8 @@ GET     /playerSettings             controllers.GameController.playerSettings()
 +nocsrf
 GET     /rules                      controllers.GameController.rules()
 +nocsrf
-GET     /squarecastle               controllers.GameController.squarecastle
+
+GET     /squarecastle/:column       controllers.GameController.squarecastle(column:String)
 +nocsrf
 GET     /websocket                  controllers.GameController.socket
 +nocsrf

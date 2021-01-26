@@ -44,12 +44,12 @@ $(document).ready(function () {
                 "x": indices[0],
                 "y": indices[1]
             };
-            startgame()
-            websocket.send("POST","/squarecastle/api/command", payload)
+            //startgame()
+            //websocket.send("POST","/squarecastle/api/command", payload)
             //sendRequest("POST","/squarecastle/api/command", payload)
             document.body.style.cursor="progress";
             setTimeout(function () {
-                //location = "/squarecastle";
+                location = "/squarecastle/"+indices[0]+indices[1];
             },1000);
         } else if(btnpressed.filter(Boolean).length === 1){
             alert("Du hast nur einen spieler ausgewählt!");
