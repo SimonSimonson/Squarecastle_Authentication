@@ -11,6 +11,7 @@ var websocket;
 
 $(document).ready(function() {
   document.body.style.cursor="default";
+  //startgame();
   turned = 0;
 });
 
