@@ -14,7 +14,7 @@ import scala.concurrent.ExecutionContext
  */
 class ApplicationController @Inject() (
   scc: SilhouetteControllerComponents,
-  home: views.html.home
+  home: views.html.index,
 )(implicit ex: ExecutionContext) extends SilhouetteController(scc) {
 
   /**
@@ -24,6 +24,7 @@ class ApplicationController @Inject() (
    */
   def index: Action[AnyContent] = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
     authInfoRepository.find[GoogleTotpInfo](request.identity.loginInfo).map { totpInfoOpt =>
+      //Ok(home(request.identity, totpInfoOpt))
       Ok(home(request.identity, totpInfoOpt))
     }
   }

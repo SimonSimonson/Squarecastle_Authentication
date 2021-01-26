@@ -34,7 +34,7 @@ class SocialAuthController @Inject() (
             authInfo <- authInfoRepository.save(profile.loginInfo, authInfo)
             authenticator <- authenticatorService.create(profile.loginInfo)
             value <- authenticatorService.init(authenticator)
-            result <- authenticatorService.embed(value, Redirect(routes.GameController.about()))
+            result <- authenticatorService.embed(value, Redirect(routes.GameController.playerSettings()))
           } yield {
             eventBus.publish(LoginEvent(user, request))
             result

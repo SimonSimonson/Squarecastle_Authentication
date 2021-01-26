@@ -116,11 +116,11 @@ function updateHTML(){
     document.getElementById("animateImg").classList.add(Data[7]);
 
     animateImg(0);
-    document.getElementById("newcard").innerHTML = '<img id="preview" class="card-preview" src="/assets/' + Data[1] + '">';
-    document.getElementById(clickedX + " " + clickedY).innerHTML = '<img src="/assets/' + Data[2] + '">';
+    document.getElementById("newcard").innerHTML = '<img id="preview" class="card-preview" src="/assets/styles/' + Data[1] + '">';
+    document.getElementById(clickedX + " " + clickedY).innerHTML = '<img src="/assets/styles/' + Data[2] + '">';
   }
   else if(Data[0] === "3") {
-    document.getElementById("newcard").innerHTML = '<img id="preview" class="card-preview" src="/assets/' + Data[1] + '">';
+    document.getElementById("newcard").innerHTML = '<img id="preview" class="card-preview" src="/assets/styles/' + Data[1] + '">';
 
   }
 

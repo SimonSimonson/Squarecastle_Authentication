@@ -3,8 +3,8 @@
 # ~~~~
 
 # Home page
-GET         /                                controllers.ApplicationController.index
 #GET     /                           controllers.GameController.about()
+GET         /                                controllers.ApplicationController.index
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~
