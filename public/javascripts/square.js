@@ -135,12 +135,16 @@ function startgame(){
 
 }
 var lock = false;
-function animateImg(index){
+function animateImg(){
   lock = true;
   document.getElementById('animateImg').style.transition = "right 0.5s";
   document.getElementById('animateImg').style.transitionTimingFunction = "ease-out";
   document.getElementById('animateImg').style.right = 'calc(100% - 200px)';
   setTimeout(endanimation, 1000);
+}
+
+function changeError(){
+
 }
 function endanimation(){
   lock = false;
