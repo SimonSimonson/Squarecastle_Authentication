@@ -149,14 +149,15 @@ var playersturn = 0;
 function changeArrow(){
   const player1Arr = document.getElementById("player1turn");
   const player2Arr = document.getElementById("player2turn");
-
+  let intervall1,intervall2;
   console.log("changeArrow");
   if(playersturn < 2){
     player1Arr.style.display = "block";
     player1Arr.style.transition = "width 0.5s";
     player1Arr.style.transitionTimingFunction = "ease-out";
     player2Arr.style.display = "none";
-    setInterval(function() {
+    clearInterval(intervall2)
+    intervall1 = setInterval(function() {
       changeSize(player1Arr)
     }, 500);
   }else{
@@ -164,7 +165,8 @@ function changeArrow(){
     player2Arr.style.display = "block";
     player2Arr.style.transition = "width 0.5s";
     player2Arr.style.transitionTimingFunction = "ease-out";
-    setInterval(function() {
+    clearInterval(intervall1)
+    intervall2 = setInterval(function() {
       changeSize(player2Arr)
     }, 500);
   }
