@@ -2,7 +2,10 @@ import com.typesafe.sbt.SbtScalariform._
 
 import scalariform.formatter.preferences._
 
-name := "play-silhouette-seed"
+name := "squarecastle-game"
+
+herokuAppName in Compile := "squarecastle-game"
+herokuJdkVersion in Compile := "1.8"
 
 version := "6.0.0"
 

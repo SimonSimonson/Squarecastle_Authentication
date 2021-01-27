@@ -128,7 +128,7 @@ function updateHTML(){
 
 }
 function startgame(){
-  websocket = new WebSocket("ws://localhost:9000/websocket");
+  websocket = new WebSocket("wss://squarecastle-game.herokuapp.com/websocket");
 
   connectWebSocket();
 
