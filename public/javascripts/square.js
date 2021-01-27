@@ -118,6 +118,7 @@ function updateHTML(){
     animateImg(0);
     document.getElementById("newcard").innerHTML = '<img id="preview" class="card-preview" src="/assets/styles/' + Data[1] + '">';
     document.getElementById(clickedX + " " + clickedY).innerHTML = '<img src="/assets/styles/' + Data[2] + '">';
+    changeArrow();
   }
   else if(Data[0] === "3") {
     document.getElementById("newcard").innerHTML = '<img id="preview" class="card-preview" src="/assets/styles/' + Data[1] + '">';
@@ -131,6 +132,8 @@ function startgame(){
 
   connectWebSocket();
 
+  changeArrow();
+  playersturn = 0;
   //animateImg(0);
 
 }
@@ -142,9 +145,20 @@ function animateImg(){
   document.getElementById('animateImg').style.right = 'calc(100% - 200px)';
   setTimeout(endanimation, 1000);
 }
-
-function changeError(){
-
+var playersturn = 0;
+function changeArrow(){
+  console.log("changeArrow");
+  if(playersturn < 2){
+    document.getElementById("player1turn").style.display = "block";
+    document.getElementById("player2turn").style.display = "none";
+    
+  }else{
+    document.getElementById("player1turn").style.display = "none";
+    document.getElementById("player2turn").style.display = "block";
+  }
+  playersturn++;
+  if(playersturn === 4)
+    playersturn = 0;
 }
 function endanimation(){
   lock = false;
@@ -195,7 +209,7 @@ function readWierdMessagefromWebsocket(data){
   Data[6] = json[6].replaceAll('"',"").replaceAll(String.fromCharCode(92),''); //neue punkte
   Data[7] = json[7].replaceAll('"',"").replaceAll(String.fromCharCode(92),''); //neue punkte
 
-  console.log(Data);
-  console.log(instruction);
+  //console.log(Data);
+  console.log("Received Message : "+instruction);
   updateHTML();
 }
