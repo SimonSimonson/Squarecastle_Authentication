@@ -7,9 +7,9 @@ invalid.recovery.code = Invalid recovery code!
 access.denied = Access denied!
 could.not.authenticate = Could not authenticate with social provider! Please try again!
 
-home.title = Silhouette - Home
-sign.up.title = Silhouette - Sign Up
-sign.in.title = Silhouette - Sign In
+home.title = Home
+sign.up.title = Sign Up
+sign.in.title = Sign In
 totp.title = Silhouette - TOTP
 forgot.password.title = Silhouette - Forgot Password
 reset.password.title = Silhouette - Reset Password
