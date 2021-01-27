@@ -147,19 +147,41 @@ function animateImg(){
 }
 var playersturn = 0;
 function changeArrow(){
+  const player1Arr = document.getElementById("player1turn");
+  const player2Arr = document.getElementById("player2turn");
+
   console.log("changeArrow");
   if(playersturn < 2){
-    document.getElementById("player1turn").style.display = "block";
-    document.getElementById("player2turn").style.display = "none";
-    
+    player1Arr.style.display = "block";
+    player1Arr.style.transition = "width 0.5s";
+    player1Arr.style.transitionTimingFunction = "ease-out";
+    player2Arr.style.display = "none";
+    setInterval(function() {
+      changeSize(player1Arr)
+    }, 500);
   }else{
-    document.getElementById("player1turn").style.display = "none";
-    document.getElementById("player2turn").style.display = "block";
+    player1Arr.style.display = "none";
+    player2Arr.style.display = "block";
+    player2Arr.style.transition = "width 0.5s";
+    player2Arr.style.transitionTimingFunction = "ease-out";
+    setInterval(function() {
+      changeSize(player2Arr)
+    }, 500);
   }
   playersturn++;
   if(playersturn === 4)
     playersturn = 0;
 }
+
+var osc = false;
+function changeSize(elem){
+  if(osc)
+    elem.style.width = "100px";
+  else
+    elem.style.width = "130px";
+  osc = !osc;
+}
+
 function endanimation(){
   lock = false;
   setTimeout(easeout, 1500);
