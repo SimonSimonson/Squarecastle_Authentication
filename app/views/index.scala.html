@@ -15,14 +15,22 @@
 @implicitFieldConstructor = @{
     b4.vertical.fieldConstructor()
 }
-@main("startScreen") {
+@main("Welcome to SquareCastle") {
     <link rel="stylesheet" media="screen" href="@assets.path("styles/main.css")">
 
     <div class="container-fluid background-img-startScreen">
 
         <div class="row topRow">
-            <div class="col-12 header">
-                <img src="@assets.path("styles/images/title.png")" width="800">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="header">
+                    <img src="@assets.path("styles/images/title.png")" width="800">
+                </div>
+            </div>
+            <div class="col-1">
+                <a href="https://squarecastle-game.herokuapp.com">
+                    <button class="account-button"></button>
+                </a>
             </div>
         </div>
 
@@ -52,6 +60,5 @@
         </div>
     </div>
 }
-
 
 

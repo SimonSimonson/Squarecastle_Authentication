@@ -19,6 +19,31 @@ input:focus {
   transition: all 0.5s linear;
   box-shadow: inset 0 0 10px #ccc;
 }
+.back-btn {
+  font-weight: bold;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  position: relative;
+  color: #ffffff;
+  display: block;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: 0 9px 0 #969696, 0 9px 25px rgba(0, 0, 0, 0.9);
+  float: left;
+  background: no-repeat center #ffffff url("images/buttons/back.png");
+  background-size: 50px;
+  height: 45px;
+  width: 125px;
+  margin: 15px 0 0 15px;
+}
+.back-btn:active {
+  box-shadow: 0 3px 0 #969696, 0 3px 6px rgba(0, 0, 0, 0.9);
+  position: relative;
+  top: 6px;
+}
+.profilePicture {
+  margin: 45px 0px 30px;
+}
 legend {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
@@ -41,7 +66,10 @@ a {
   text-align: center;
 }
 .accountTitle {
-  padding: 100px 0 0 0;
+  padding: 100px 0;
+}
+.twoFactor {
+  margin: 80px 0px 0px;
 }
 .provider {
   display: inline-block;
@@ -73,11 +101,23 @@ a {
 .user .data {
   margin-top: 10px;
 }
+.userName {
+  font-weight: 600;
+  font-size: 25px;
+}
+.userEmail {
+  font-size: 15px;
+}
 .data {
   color: #fff;
 }
 .accountColumn {
   background-color: #fff;
+  height: 100vh;
+  max-width: 260px;
+}
+.infoColumn {
+  padding-left: 100px;
 }
 .form-control {
   border-radius: 0;
@@ -890,4 +930,14 @@ section.wrapper {
   box-shadow: 0 3px 0 #969696, 0 3px 6px rgba(0, 0, 0, 0.9);
   position: relative;
   top: 6px;
+}
+.account-button {
+  border-color: #000000;
+  border-width: 3px;
+  border-radius: 50%;
+  float: right;
+  height: 85px;
+  width: 85px;
+  background: no-repeat center #ffffff url("images/profilePicture.png");
+  background-size: 75px;
 }
