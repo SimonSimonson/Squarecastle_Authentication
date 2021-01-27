@@ -63,6 +63,7 @@ class GameController @Inject() (
     addplayers(s.charAt(0).toString, s.charAt(1).toString)
     supervisor.testfall();
     supervisor.newRound()
+
     authInfoRepository.find[GoogleTotpInfo](request.identity.loginInfo).map { totpInfoOpt =>
       Ok(game(supervisor.controller.ImagePath(supervisor.card, supervisor.card), supervisor, player1color, player2color, player1name, player2name, request.identity, totpInfoOpt))
     }

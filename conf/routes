@@ -49,6 +49,7 @@ GET     /rules                      controllers.GameController.rules()
 
 GET     /squarecastle/:column       controllers.GameController.squarecastle(column:String)
 +nocsrf
+
 GET     /websocket                  controllers.GameController.socket
 +nocsrf
 # Map static resources from the /public folder to the /assets URL path
