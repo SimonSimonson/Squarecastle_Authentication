@@ -26,10 +26,7 @@
             <script @{CSPNonce.attr} src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
     </head>
-    <body style="background-image: url('@assets.path("styles/images/backgrounds/burg.jpeg")';
-    background-size:     cover;                      /* <------ */
-    background-repeat:   no-repeat;
-    background-position: center center;">
+    <body>
 
         <main>
                 @request.flash.get("error").map { msg =>
