@@ -12,6 +12,9 @@
 @implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
 
 @main(messages("sign.in.title")) {
+    <div class="title" style="height: 50px;position: absolute; top:-25px; left: 0%">
+        <img src="@assets.path("styles/images/title.png")" width="470">
+    </div>
     <fieldset class="col-md-6 col-md-offset-3">
         <legend>@messages("sign.in.credentials")</legend>
         @helper.form(action = controllers.routes.SignInController.submit()) {

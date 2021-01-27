@@ -1,6 +1,6 @@
 package controllers
 
-import akka.actor.{ActorSystem, Props}
+import akka.actor.{ ActorSystem, Props }
 import _root_.controllers.WebSockets.SquarecastleWebsocketactor
 import akka.stream.Materializer
 import com.mohiva.play.silhouette.api.Silhouette
@@ -87,9 +87,10 @@ class GameController @Inject() (
       Ok(signin(request.identity, totpInfoOpt))
     }
   }
-
-  def home: Result = {
-      Ok(index()).withHeaders("Acces-Control-Allow-Origin" -> "http://localhost:8080")
+  def home: Action[AnyContent] = SecuredAction.async { implicit request: SecuredRequest[EnvType, AnyContent] =>
+    authInfoRepository.find[GoogleTotpInfo](request.identity.loginInfo).map { totpInfoOpt =>
+      Ok(index(request.identity, totpInfoOpt))
+    }
   }
 
   def JsonCommand = Action(parse.json) {

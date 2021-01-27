@@ -14,7 +14,7 @@ import scala.concurrent.ExecutionContext
  */
 class ApplicationController @Inject() (
   scc: SilhouetteControllerComponents,
-  home: views.html.index,
+  home: views.html.home,
 )(implicit ex: ExecutionContext) extends SilhouetteController(scc) {
 
   /**

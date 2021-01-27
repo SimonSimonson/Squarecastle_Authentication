@@ -388,6 +388,9 @@ section.wrapper {
   background: no-repeat center center fixed url(../public/images/background-wood.png);
   background-size: cover;
 }*/
+.background-img-land {
+  background: no-repeat center url("images/backgrounds/burg.jpeg");
+}
 .background-img-playerSettings {
   background: no-repeat center center fixed url("images/backgrounds/background-wood.png");
   -webkit-background-size: cover;

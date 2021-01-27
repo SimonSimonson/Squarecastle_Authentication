@@ -3,8 +3,8 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.GameController.home()
-#GET         /                                controllers.ApplicationController.index
+#GET     /                           controllers.GameController.home()
+GET         /                                controllers.ApplicationController.index
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~
@@ -41,7 +41,7 @@ GET         /account/activate/:token         controllers.ActivateAccountControll
 
 # An example controller showing a sample home page
 #GET     /                           controllers.GameController.about()
-GET     /home                       controllers.GameController.about()
+GET     /home                       controllers.GameController.home()
 GET     /playerSettings             controllers.GameController.playerSettings()
 +nocsrf
 GET     /rules                      controllers.GameController.rules()

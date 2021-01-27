@@ -6,29 +6,31 @@
 @import forms.TotpSetupForm.Data
 @import com.mohiva.play.silhouette.impl.providers.GoogleTotpCredentials
 @import com.mohiva.play.silhouette.impl.providers.GoogleTotpInfo
+@import gamecontrol.supervisor.SupervisorInterface
+@import javax.imageio.ImageIO
 
 @this()(implicit webJarsUtil: WebJarsUtil, assets: AssetsFinder)
-@(totpDataOpt: Option[(Form[Data], GoogleTotpCredentials)] = None)
+@(user: models.User, totpInfoOpt: Option[GoogleTotpInfo], totpDataOpt: Option[(Form[Data], GoogleTotpCredentials)] = None)(implicit request: RequestHeader, messages: Messages)
+
 @implicitFieldConstructor = @{
     b4.vertical.fieldConstructor()
 }
-
 @main("startScreen") {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" media="screen" href="@assets.path("styles/main.css")">
+    <link rel="stylesheet" media="screen" href="@assets.path("style/main.css")">
 
-    <div class="container-fluid background-img-startScreen">
+    <div class="container-fluid background-img-land">
 
         <div class="row topRow">
             <div class="col-12 header">
-                <img src="@assets.path("styles/images/title.png")" width="800">
+                <img src="@assets.path("style/images/title.png")" width="800">
             </div>
         </div>
 
         @*<div class="row rowToBottom">
-            <div class="col-12 description">
-                <img src="@routes.Assets.versioned("images/description.png")" width="600">
-            </div>
+        <div class="col-12 description">
+        <img src="@routes.Assets.versioned("images/description.png")" width="600">
+        </div>
         </div>*@
 
         <div class="row bottomRow">
@@ -37,7 +39,7 @@
                 <div class="row bottom">
                     <div class="col-6">
                         <div class="centerButton">
-                            <a class="playerSettings-btn" href="signIn"></a>
+                            <a class="playerSettings-btn" href="playerSettings"></a>
                         </div>
                     </div>
                     <div class="col-6">
@@ -51,7 +53,6 @@
         </div>
     </div>
 }
-
 
 
 
