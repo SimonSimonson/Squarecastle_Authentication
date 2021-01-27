@@ -12,7 +12,6 @@
 @implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
 
 @main(messages("sign.in.title")) {
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" media="screen" href="@assets.path("styles/main.css")">
 
     <div class="container-fluid background-img-game">
@@ -48,7 +47,7 @@
                         <div class="social-providers">
                             <p>@messages("or.use.social")</p>
                             <div>
-                                <a href="/authenticate/google" class="provider google" title="Goolge"><img src="@assets.path(s"images/providers/google.png")" width="64px" height="64px" alt="Google"></a>
+                                <a href="/authenticate/google" class="provider google" title="Google"><img src="@assets.path(s"images/providers/google.png")" width="64px" height="64px" alt="Google"></a>
                                 <a href="/authenticate/facebook" class="provider facebook" title="Facebook"><img src="@assets.path(s"images/providers/facebook.png")" width="64px" height="64px" alt="Facebook"></a>
 
                             <!-- @for(p <- socialProviders.providers) {
